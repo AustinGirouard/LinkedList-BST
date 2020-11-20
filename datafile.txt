@@ -186,11 +186,11 @@ instance-based
 concepts
 
 85711
-Instance-Based Learning Algorithms 
+Instance-Based Learning Algorithms
 Dan Aha
 2
 learning
-instance-based 
+instance-based
 
 79871
 Concept Learning and Flexible Weighting
