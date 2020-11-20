@@ -14,6 +14,8 @@ public class BinarySearchTreeBuilder
     public boolean contains(String keyword)
     {
         BSTNode current = root;
+        
+        // Loop through BST until the keyword is found or until null is reached
         while(current != null)
         {
             if(current.keyword.compareTo(keyword) > 0)
@@ -22,9 +24,12 @@ public class BinarySearchTreeBuilder
             else if(current.keyword.compareTo(keyword) < 0)
                 current = current.right;
             
+            // Keyword found, return true
             else
                 return true;
         }
+
+        // If the keyword was not found, return false
         return false;
     }
 
@@ -32,6 +37,7 @@ public class BinarySearchTreeBuilder
     // Inserts a record into the BST
     boolean insert(String keyword, FileData fd)
     {
+        // Create new record to insert into BST
         Record record = new Record(fd.id, fd.title, fd.author, null);
         
         // If the tree is empty, insert new record at the root
@@ -85,6 +91,7 @@ public class BinarySearchTreeBuilder
 
     boolean delete(String keyword)
     {
+        // Check if the keyword is in the BST
         if(!contains(keyword))
             return false;
         
@@ -162,6 +169,43 @@ public class BinarySearchTreeBuilder
                  
             }
             return true;
+        }
+    }
+
+
+    // Print helper method, displays header for print
+    public void print()
+    {
+        System.out.println("---------------Print BST Inorder---------------");
+
+        // Print BST inorder recursively
+        inorderPrint(this.root);
+    }
+
+    // Prints BST inorder recursively
+    private void inorderPrint(BSTNode current)
+    {
+        if (current != null)
+        {
+            // Recur through the left subtree of each node
+            inorderPrint(current.left);
+
+            // Print current keyword
+            System.out.printf("%s%n\t", current.keyword);
+
+            // Print all records for current keyword
+            Record currentRecord = current.record;
+            while(currentRecord != null)
+            {
+                System.out.printf("|%d|%s|%s -> ", currentRecord.id, currentRecord.author, currentRecord.title);
+                currentRecord = currentRecord.next;
+            }
+
+            // Print null at the end of the record list
+            System.out.println("null");
+
+            // Recur through the right subtree of each node
+            inorderPrint(current.right);
         }
     }
 }
