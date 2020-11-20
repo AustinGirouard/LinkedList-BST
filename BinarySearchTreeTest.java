@@ -16,7 +16,7 @@ class BinarySearchTreeTest{
     tree.dbTree.print();
   }
 
-  
+
   BinarySearchTreeTest(String filename)
   {
     // Read datafile.txt into datastructure
@@ -52,6 +52,7 @@ class BinarySearchTreeTest{
     }
   }
 
+  // Reads the next record from filedata.txt
   public FileData readNextRecord()
   {
         if(reader == null)

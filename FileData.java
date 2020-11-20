@@ -1,4 +1,5 @@
-class FileData{
+class FileData
+{
     /** Class: FileData
      *  Contains the content of a record found in the input file. Each
      *  FileData object contains exactly one record. An object of this
